@@ -1,0 +1,4 @@
+#!/bin/sh
+export PKG_CONFIG_DIR=
+export PKG_CONFIG_LIBDIR=/home/build/aarch64/data/data/com.termux/files/usr/lib/pkgconfig
+exec /bin/pkg-config "$@"

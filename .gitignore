@@ -1,0 +1,4 @@
+/sshfs/
+/pkg/
+/src/
+/*.tar.zst

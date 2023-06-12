@@ -1,0 +1,20 @@
+--- a/sshfs.c
++++ b/sshfs.c
+@@ -4111,7 +4111,7 @@
+     *name_to_id = g_hash_table_new_full(g_str_hash, g_str_equal, free, NULL);
+     *id_to_name = g_hash_table_new(NULL, NULL);
+     FILE *fp;
+-    char line[LINE_MAX];
++    char line[PATH_MAX];
+     unsigned int lineno = 0;
+     uid_t local_uid = getuid();
+ 
+@@ -4137,7 +4137,7 @@
+         exit(1);
+     }
+ 
+-    while (fgets(line, LINE_MAX, fp) != NULL) {
++    while (fgets(line, PATH_MAX, fp) != NULL) {
+         lineno++;
+         char *name, *remote_name;
+ 

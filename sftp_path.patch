@@ -1,0 +1,21 @@
+--- a/sshfs.c
++++ b/sshfs.c
+@@ -3760,7 +3760,7 @@
+ "             ignore           don't do any re-mapping\n"
+ "             error            return an error (default)\n"
+ "    -o ssh_command=CMD     execute CMD instead of 'ssh'\n"
+-"    -o sftp_server=SERV    path to sftp server or subsystem (default: /usr/lib/gesftpserver)\n"
++"    -o sftp_server=SERV    path to sftp server or subsystem (default: /data/data/com.termux/files/usr/lib/gesftpserver)\n"
+ "    -o directport=PORT     directly connect to PORT bypassing ssh\n"
+ "    -o passive             communicate over stdin and stdout bypassing network\n"
+ "    -o disable_hardlink    link(2) will return with errno set to ENOSYS\n"
+@@ -4394,7 +4394,7 @@
+     if (sshfs.sftp_server)
+         sftp_server = sshfs.sftp_server;
+     else
+-        sftp_server = "/usr/lib/gesftpserver";
++        sftp_server = "/data/data/com.termux/files/usr/lib/gesftpserver";
+ 
+     if (sshfs.ssh_ver != 1 && strchr(sftp_server, '/') == NULL)
+         ssh_add_arg("-s");
+ 
