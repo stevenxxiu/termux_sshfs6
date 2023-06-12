@@ -17,7 +17,7 @@ prepare() {
   cd $_pkgname
 
   yes | sudo pacman --config "${HOME}/pacman_aarch64.conf" --arch aarch64 --sync libfuse3 glib openssh
-  sudo chown --recursive build "${HOME}/aarch64${TERMUX_PREFIX}"
+  sudo chown --recursive build $TERMUX_PREFIX
 
   export PATH="/opt/android-ndk/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH"
   export PKG_CONFIG="${startdir}/pkg-config"
@@ -31,7 +31,7 @@ prepare() {
 
   CC=gcc CXX=g++ CFLAGS= CXXFLAGS= CPPFLAGS= LDFLAGS= meson setup \
     --cross-file "${startdir}/meson-crossfile.txt" \
-    --prefix "${HOME}/aarch64${TERMUX_PREFIX}" \
+    --prefix $TERMUX_PREFIX \
     --libdir lib \
     --buildtype minsize \
     --strip \
@@ -46,5 +46,5 @@ build() {
 package() {
   cd $_pkgname/build
 
-  DESTDIR="${pkgdir}${TERMUX_PREFIX}" ninja install
+  DESTDIR="${pkgdir}" ninja install
 }

@@ -11,10 +11,10 @@ strip = 'llvm-strip'
 needs_exe_wrapper = true
 
 [built-in options]
-c_args = ['-fstack-protector-strong', '-Oz', '-I/home/build/aarch64/data/data/com.termux/files/usr/include']
-cpp_args = ['-fstack-protector-strong', '-Oz', '-I/home/build/aarch64/data/data/com.termux/files/usr/include']
-c_link_args = ['-L/home/build/aarch64/data/data/com.termux/files/usr/lib', '-Wl,-rpath=/home/build/aarch64/data/data/com.termux/files/usr/lib', '-fopenmp', '-static-openmp', '-Wl,--enable-new-dtags', '-Wl,--as-needed', '-Wl,-z,relro,-z,now']
-cpp_link_args = ['-L/home/build/aarch64/data/data/com.termux/files/usr/lib', '-Wl,-rpath=/home/build/aarch64/data/data/com.termux/files/usr/lib', '-fopenmp', '-static-openmp', '-Wl,--enable-new-dtags', '-Wl,--as-needed', '-Wl,-z,relro,-z,now']
+c_args = ['-fstack-protector-strong', '-Oz', '-I/data/data/com.termux/files/usr/include']
+cpp_args = ['-fstack-protector-strong', '-Oz', '-I/data/data/com.termux/files/usr/include']
+c_link_args = ['-L/data/data/com.termux/files/usr/lib', '-Wl,-rpath=/data/data/com.termux/files/usr/lib', '-fopenmp', '-static-openmp', '-Wl,--enable-new-dtags', '-Wl,--as-needed', '-Wl,-z,relro,-z,now']
+cpp_link_args = ['-L/data/data/com.termux/files/usr/lib', '-Wl,-rpath=/data/data/com.termux/files/usr/lib', '-fopenmp', '-static-openmp', '-Wl,--enable-new-dtags', '-Wl,--as-needed', '-Wl,-z,relro,-z,now']
 
 [host_machine]
 cpu_family = 'aarch64'
