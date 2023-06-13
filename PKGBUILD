@@ -23,7 +23,6 @@ prepare() {
   export PKG_CONFIG="${startdir}/pkg-config"
 
   patch --silent --strip 1 --input "${startdir}/line-max.patch"
-  patch --silent --strip 1 --input "${startdir}/sftp_path.patch"
 
   rm -rf build
   mkdir build
