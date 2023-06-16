@@ -6,6 +6,7 @@ pkgdesc="FUSE client based on SFTP v6"
 arch=('aarch64')
 url="https://github.com/stevenxxiu/sshfs"
 license=(GPL)
+depends=(libfuse3 glib openssh)
 makedepends=(meson python-docutils)
 source=(git+https://github.com/stevenxxiu/sshfs.git)
 sha256sums=('SKIP')
