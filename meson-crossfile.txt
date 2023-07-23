@@ -4,7 +4,7 @@ c = 'aarch64-linux-android33-clang'
 cmake = 'cmake'
 cpp = 'aarch64-linux-android33-clang++'
 ld = 'ld.lld'
-pkgconfig = '/bin/pkg-config'
+pkgconfig = 'pkg-config'
 strip = 'llvm-strip'
 
 [properties]

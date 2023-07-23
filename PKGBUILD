@@ -7,7 +7,6 @@ arch=('aarch64')
 url="https://github.com/stevenxxiu/sshfs"
 license=(GPL)
 depends=(libfuse3 glib openssh)
-makedepends=(meson python-docutils)
 source=(git+https://github.com/stevenxxiu/sshfs.git)
 sha256sums=('SKIP')
 conflicts=('sshfs')
@@ -15,13 +14,14 @@ conflicts=('sshfs')
 TERMUX_PREFIX='/data/data/com.termux/files/usr'
 
 prepare() {
+  doas apk add meson py3-docutils
+
   cd $_pkgname
 
-  yes | sudo pacman --config "${HOME}/pacman_aarch64.conf" --arch aarch64 --sync libfuse3 glib openssh
-  sudo chown --recursive build $TERMUX_PREFIX
+  yes | doas pacman --config "${HOME}/pacman_aarch64.conf" --arch aarch64 --sync libfuse3 glib openssh
+  doas chown --recursive build $TERMUX_PREFIX
 
-  export PATH="/opt/android-ndk/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH"
-  export PKG_CONFIG="${startdir}/pkg-config"
+  export PATH="$startdir:$PATH"
 
   patch --silent --strip 1 --input "${startdir}/line-max.patch"
 
